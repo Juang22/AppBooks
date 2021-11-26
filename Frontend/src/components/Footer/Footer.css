@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@800&display=swap');
+
+.footer {
+  background-color: rgba(216, 248, 183, 0.5);
+  box-shadow: 0 2px 5px 0 #00000042;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+.footer p {
+  font-size: 0.75rem;
+  padding-top: 15px;
+}
+
+.made-with-mk {
+  font-family: 'Tajawal', sans-serif;
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: fixed;
+  z-index: 555;
+  bottom: 30px;
+  right: 30px;
+  border-radius: 30px;
+  background-color: rgba(16, 16, 16, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);
+  -moz-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);
+  -o-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);
+  transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);
+}
+.made-with-mk:hover,
+.made-with-mk:active,
+.made-with-mk:focus {
+  width: 218px;
+  color: #ffffff;
+  transition-duration: 0.55s;
+  padding: 10px 19px;
+}
+.made-with-mk:hover .made-with,
+.made-with-mk:active .made-with,
+.made-with-mk:focus .made-with {
+  opacity: 1;
+}
+.made-with-mk:hover .brand,
+.made-with-mk:active .brand,
+.made-with-mk:focus .brand {
+  left: 0;
+}
+.made-with-mk .brand,
+.made-with-mk .made-with {
+  float: left;
+}
+.made-with-mk .brand {
+  position: relative;
+  top: 4px;
+  left: 4px;
+  letter-spacing: 1px;
+  vertical-align: middle;
+  font-size: 16px;
+  font-weight: 600;
+}
+.made-with-mk .made-with {
+  color: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  left: 58px;
+  top: 14px;
+  opacity: 0;
+  margin: 0;
+  -webkit-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);
+  -moz-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);
+  -o-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);
+  transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);
+}

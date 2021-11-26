@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.home-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: hsla(0, 0%, 20%, 0.5);
+  background-image: url(../../image/bg-image.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-blend-mode: soft-light; */
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(216, 248, 183);
+  font-family: 'Tajawal', sans-serif;
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2));
+}
+.home-content h3 {
+  font-size: 4em;
+  font-weight: 300;
+}
+
+.home-content h1 {
+  font-size: 5em;
+  font-weight: 800;
+}
+
+@media screen and (max-width: 480px) {
+  .home-content h3 {
+    font-size: 3em;
+  }
+
+  .home-content h1 {
+    font-size: 5em;
+  }
+}

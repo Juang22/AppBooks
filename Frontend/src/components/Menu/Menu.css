@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@800&display=swap');
+
+.Menu {
+  background-color: rgb(255, 154, 140);
+  box-shadow: 0 2px 5px 0 #00000042;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.Menu ul {
+  display: block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Menu li {
+  color: #def1f0;
+  display: inline-block;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 14;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.Menu li a,
+#username {
+  color: #def1f0;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  outline: 0;
+  padding: 10px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+#username {
+  padding: 0;
+}
+
+#username a {
+  color: #def1f0;
+}
+
+.dropdown-menu,
+.username-item {
+  padding: 0 !important;
+}
+
+.menu-item:hover,
+#username:hover {
+  background-color: rgb(206, 31, 106);
+}

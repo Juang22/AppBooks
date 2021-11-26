@@ -1,0 +1,376 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a book collection APi made by Group 1 for the final project of Nodejs module.",
+    "version": "1.0.0",
+    "title": "Your Books"
+  },
+  "host": "localhost:8080",
+  "basePath": "/api/v1",
+  "schemes": ["http"],
+  "paths": {
+    "/users/login": {
+      "post": {
+        "tags": ["user"],
+        "summary": "Logs user into the system",
+        "description": "This operation is used to validate user data within the user data stored in the database.",
+        "operationId": "login",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "user",
+            "description": "The user to logged in.",
+            "schema": {
+              "type": "object",
+              "required": ["username", "password"],
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User logged in correctly",
+            "schema": {
+              "$ref": "#/definitions/UserBasic"
+            }
+          },
+          "400": {
+            "description": "Error on request body",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "401": {
+            "description": "Not user private page",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "404": {
+            "description": "Not a valid URL",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "405": {
+            "description": "Method not supported",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      }
+    },
+    "/users/create": {
+      "post": {
+        "tags": ["user"],
+        "summary": "Create a new user",
+        "description": "This operation is used to create a new user and store it into the database.",
+        "operationId": "create",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "user",
+            "description": "The data of the new user.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserBasic"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User created successfully",
+            "schema": {
+              "$ref": "#/definitions/UserBasic"
+            }
+          },
+          "400": {
+            "description": "Error on request body",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "401": {
+            "description": "Not user private page",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "404": {
+            "description": "Not a valid URL",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "405": {
+            "description": "Method not supported",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "500": {
+            "description": "Db error while adding user",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      }
+    },
+    "/users/settings/{username}": {
+      "put": {
+        "tags": ["user"],
+        "summary": "Update an existent user.",
+        "description": "Modify data from an existent user and update the database. This can only be done by the logged in user.",
+        "operationId": "update",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "username",
+            "description": "User username",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "The data to update the existent user.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserFullData"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User updated correctly",
+            "schema": {
+              "$ref": "#/definitions/UserFullData"
+            }
+          },
+          "400": {
+            "description": "Error on request body",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "401": {
+            "description": "Not user private page",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "404": {
+            "description": "Not a valid URL",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "405": {
+            "description": "Method not supported",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      }
+    },
+    "/users/books/{username}": {
+      "get": {
+        "tags": ["books"],
+        "summary": "Get all books from an user",
+        "description": "This operation is used to retrieve all books stored in the database which are related to an specific user, getting the data by username. This can only be done by the logged in user.",
+        "operationId": "getBooksByUser",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "username",
+            "description": "User username that needs to be updated.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieve user books successfuly",
+            "schema": {
+              "$ref": "#/definitions/Books"
+            }
+          },
+          "401": {
+            "description": "Not user private page",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "404": {
+            "description": "Not a valid URL",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "405": {
+            "description": "Method not supported",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Book": {
+      "type": "object",
+      "required": ["title", "author", "description", "release_year"],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255,
+          "example": "The Little prince"
+        },
+        "author": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50,
+          "example": "Antoine de Saint-Exupéry"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512,
+          "example": "A pilot stranded in the desert awakes one morning to see, standing before him, the most extraordinary little fellow."
+        },
+        "release_year": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4,
+          "example": 1943
+        }
+      }
+    },
+    "Books": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Book"
+      }
+    },
+    "UserBasic": {
+      "type": "object",
+      "required": ["username", "password", "passwordConfirm"],
+      "properties": {
+        "username": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 17,
+          "example": "jhondoe33"
+        },
+        "password": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 17,
+          "example": "my_Pass33!"
+        },
+        "passwordConfirm": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 17,
+          "example": "my_Pass33!"
+        }
+      }
+    },
+    "UserFullData": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 255,
+          "example": "Jhon"
+        },
+        "last_name": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 255,
+          "example": "Doe"
+        },
+        "email": {
+          "type": "string",
+          "pattern": "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$",
+          "example": "j_doe@somemail.com"
+        },
+        "phone": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 15,
+          "example": 541111222222
+        },
+        "address": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 255,
+          "example": "123 Elm Street"
+        },
+        "city": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 255,
+          "example": "Portland"
+        },
+        "country": {
+          "type": "string",
+          "pattern": "[A-Za-z]{3}",
+          "example": "USA"
+        }
+      }
+    },
+    "ApiResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

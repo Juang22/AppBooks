@@ -1,0 +1,52 @@
+/* CARDS */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@800&display=swap');
+.card {
+  background-color: hsl(0, 0%, 100%);
+  margin-bottom: 0.4em;
+  /*margen hacia abajo para separar cada tarjeta*/
+  width: 33%;
+  max-width: 300px;
+  border: none;
+}
+
+.card-content {
+  padding: 1em;
+  font-family: 'Tajawal', sans-serif;
+  /*contenido de la tarjeta, no tiene ancho para ocupar el ancho completo */
+}
+
+.card-content h5 {
+  color: rgb(206, 31, 106);
+  margin-top: 0;
+  margin-bottom: 0.3em;
+  font-weight: 800;
+}
+
+.card-content p {
+  font-size: 95%;
+  margin-bottom: 0.2em;
+}
+
+.card:hover {
+  box-shadow: 3px 3px 8px hsl(0, 0%, 30%);
+}
+
+.btn-outline-secondary {
+  color: rgb(206, 31, 106) !important;
+  border-color: rgb(206, 31, 106) !important;
+}
+
+.btn-outline-secondary:hover {
+  color: #fff !important;
+  border-color: rgb(206, 31, 106) !important;
+  background-color: rgb(206, 31, 106) !important;
+}
+
+@media screen and (max-width: 52em) {
+  .center {
+    max-width: 52em;
+  }
+  .card {
+    width: 80%;
+  }
+}

@@ -1,0 +1,87 @@
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: hsla(0, 0%, 20%, 0.5);
+  background-image: url(../../image/bg-image.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+h3 {
+  text-align: center;
+}
+.input-group-login {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.card-login {
+  margin: 35%;
+  margin-top: 5%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.input {
+  margin: 3px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+}
+.form-table {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh;
+}
+
+.table-login {
+  width: 300px;
+
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-login {
+  display: flex;
+  align-items: center;
+  margin: 2%;
+
+  align-content: center;
+  flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .table-login {
+    width: auto;
+  }
+}
+/*
+@media (max-width:500px){
+    .table-login{
+        margin: 0;
+
+    }
+    .form-login{
+
+        margin: 0;
+
+    }
+    .cardBody{
+
+        margin: 0;
+        padding: 0;
+
+    }
+} */
